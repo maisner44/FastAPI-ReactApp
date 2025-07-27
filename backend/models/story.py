@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 from db.database import Base
 
-class Story():
+class Story(Base):
     __tablename__ = "stories"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -24,5 +24,5 @@ class StoryNode(Base):
     
     is_ending = Column(Boolean, default=False)
     is_winning_ending = Column(Boolean, default=False)
-    options = Column(JSON,default=List)
+    options = Column(JSON,default=list)
     story = relationship("Story", back_populates="nodes")
